@@ -11,5 +11,9 @@ public class EmployeeRepository
     {
         EmployeeDBContext employeeDBContext = new EmployeeDBContext();
         return employeeDBContext.Departments.Include("Employees").ToList();
+        
+        //By defualt;if we use =>  employeeDBContext.Departments..ToList();  then data of navigation property in department class will not loaded in entity framework
+        // to include data of emplyee from department we use Include("Employees") method of entity framework
+        //
     }
 }
